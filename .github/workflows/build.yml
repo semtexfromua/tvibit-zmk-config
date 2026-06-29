@@ -2,4 +2,6 @@ name: Build ZMK firmware
 on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    # Pin the build workflow to the SAME release as the ZMK manifest (config/west.yml).
+    # Using @main with an older pinned ZMK breaks (e.g. KeyError: 'qualifiers').
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3.0
