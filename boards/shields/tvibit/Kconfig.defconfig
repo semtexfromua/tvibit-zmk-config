@@ -1,0 +1,32 @@
+# Left half is the central (connects to the PC, hosts ZMK Studio).
+if SHIELD_TVIBIT_LEFT
+
+config ZMK_KEYBOARD_NAME
+	default "Tvibit"            # must be < 16 characters
+
+config ZMK_SPLIT_ROLE_CENTRAL
+	default y
+
+endif
+
+if SHIELD_TVIBIT_LEFT || SHIELD_TVIBIT_RIGHT
+
+config ZMK_SPLIT
+	default y
+
+endif
+
+# OLED (SSD1306 over I2C) defaults, only pulled in when the display is enabled.
+if ZMK_DISPLAY
+
+config I2C
+	default y
+
+config SSD1306
+	default y
+
+choice ZMK_DISPLAY_WORK_QUEUE
+	default ZMK_DISPLAY_WORK_QUEUE_DEDICATED
+endchoice
+
+endif

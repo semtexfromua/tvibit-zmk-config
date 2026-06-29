@@ -1,0 +1,6 @@
+# No whitespace after the comma or in the part name!
+config SHIELD_TVIBIT_LEFT
+	def_bool $(shields_list_contains,tvibit_left)
+
+config SHIELD_TVIBIT_RIGHT
+	def_bool $(shields_list_contains,tvibit_right)
